@@ -283,10 +283,6 @@ st.sidebar.markdown("## 🔐 הרשאות")
 role = st.sidebar.selectbox("תפקיד המשתמש", ["חבר/ת רשת", "צוות מעוז (Admin)"])
 
 st.sidebar.divider()
-st.sidebar.markdown("## 🔎 שיטת חיפוש")
-mode = st.sidebar.radio("בחר/י מנוע", ["Semantic Search", "Keyword Search"])
-
-st.sidebar.divider()
 st.sidebar.markdown("## 📂 סינון")
 region_options = sorted([r for r in df["region"].unique() if r])
 sector_options = sorted([s for s in df["sector"].unique() if s])
@@ -310,11 +306,20 @@ if st.session_state["latencies"]:
     st.sidebar.caption(f"⏱ זמן חיפוש ממוצע: {avg_latency*1000:.0f} ms")
 
 # --------------------------------------------------------------------------------------
-# Search Input
+# Search Input & Mode Selector
 # --------------------------------------------------------------------------------------
+# Render search mode toggle horizontally above the search bar
+mode = st.radio(
+    "בחר שיטת חיפוש:",
+    options=["Semantic Search", "Keyword Search"],
+    horizontal=True,
+    help="Semantic Search מוצא התאמות לפי הקשר ומשמעות. Keyword Search מחפש התאמה מדויקת של מילים."
+)
+
 query = st.text_input(
     "🔍 הזן שאילתת חיפוש חופשית",
     placeholder="לדוגמה: חינוך בלתי פורמלי, יזמות חברתית, מנהיגות צעירה...",
+    label_visibility="collapsed"
 )
 
 if query:
