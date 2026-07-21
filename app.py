@@ -54,7 +54,7 @@ COLUMN_ALIASES: Dict[str, List[str]] = {
     "organization": ["organization", "org", "company", "ארגון"],
     "region": ["region", "district", "מחוז", "אזור"],
     "sector": ["sector", "מגזר"],
-    "experience": ["experience", "bio", "about", "ניסיון", "תקציר"],
+    "experience": ["experience", "bio", "about", "ניסיון", "תקציר", "רקע מקצועי"],
     "interests": ["interests", "tags", "תחומי עניין"],
 }
 
