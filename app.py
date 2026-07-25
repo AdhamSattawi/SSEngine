@@ -41,50 +41,63 @@ st.markdown(
     /* -------- Google Font -------- */
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-    /* -------- Global RTL & Typography -------- */
-    html, body, [class*="css"] {
-        direction: rtl;
-        text-align: right;
-        font-family: 'Rubik', sans-serif;
+    /* -------- Global Font & RTL -------- */
+    * {
+        font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    /* -------- Inputs -------- */
-    .stTextInput input, .stSelectbox select, .stMultiSelect {
-        text-align: right;
+    html, body, [class*="css"], [class*="st-"] {
         direction: rtl;
-        font-family: 'Rubik', sans-serif;
+        text-align: right;
+        font-family: 'Rubik', sans-serif !important;
+        color: var(--text-color);
     }
 
-    /* -------- Main title area -------- */
+    /* -------- Inputs & Selectboxes -------- */
+    .stTextInput input, .stSelectbox select, .stMultiSelect, button {
+        text-align: right;
+        direction: rtl;
+        font-family: 'Rubik', sans-serif !important;
+        color: var(--text-color) !important;
+    }
+
+    /* -------- Main Title Header -------- */
     .main-header {
-        padding: 1.5rem 0 1rem 0;
-        border-bottom: 2px solid rgba(49, 51, 63, 0.1);
+        padding: 1.25rem 0 1rem 0;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.2);
         margin-bottom: 1.5rem;
+        direction: rtl !important;
+        text-align: right !important;
     }
     .main-header h1 {
         font-size: 2rem;
         font-weight: 700;
-        margin: 0 0 0.25rem 0;
+        margin: 0 0 0.35rem 0;
         letter-spacing: -0.5px;
+        color: var(--text-color) !important;
+        text-align: right !important;
     }
     .main-header p {
-        color: #6b7280;
         font-size: 0.95rem;
         margin: 0;
+        opacity: 0.8;
+        color: var(--text-color) !important;
+        text-align: right !important;
     }
 
-    /* -------- Profile card -------- */
+    /* -------- Profile Card (Adaptive Light & Dark Mode) -------- */
     .profile-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
+        background-color: var(--secondary-background-color, rgba(128, 128, 128, 0.05));
+        color: var(--text-color) !important;
+        border: 1px solid rgba(128, 128, 128, 0.2);
         border-radius: 12px;
         padding: 1.25rem 1.5rem;
         margin-bottom: 0.75rem;
         transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .profile-card:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        border-color: #d1d5db;
+        border-color: rgba(128, 128, 128, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .profile-card .card-header {
         display: flex;
@@ -96,21 +109,23 @@ st.markdown(
     .profile-card .card-name {
         font-size: 1.15rem;
         font-weight: 600;
-        color: #111827;
         margin: 0;
+        color: var(--text-color) !important;
     }
     .profile-card .card-title {
         font-size: 0.9rem;
-        color: #6b7280;
-        margin: 0.15rem 0 0 0;
+        opacity: 0.75;
+        margin: 0.2rem 0 0 0;
+        color: var(--text-color) !important;
     }
     .profile-card .card-body {
         font-size: 0.88rem;
-        color: #374151;
         line-height: 1.65;
+        opacity: 0.9;
+        color: var(--text-color) !important;
     }
 
-    /* -------- Score badge -------- */
+    /* -------- Score Badges -------- */
     .score-badge {
         display: inline-flex;
         align-items: center;
@@ -118,107 +133,111 @@ st.markdown(
         border-radius: 20px;
         padding: 0.2rem 0.65rem;
         font-size: 0.8rem;
-        font-weight: 500;
+        font-weight: 600;
         white-space: nowrap;
     }
     .score-badge.high {
-        background: #f0fdf4;
-        color: #166534;
-        border: 1px solid #bbf7d0;
+        background: rgba(34, 197, 94, 0.15);
+        color: #16a34a !important;
+        border: 1px solid rgba(34, 197, 94, 0.3);
     }
     .score-badge.medium {
-        background: #fffbeb;
-        color: #92400e;
-        border: 1px solid #fde68a;
+        background: rgba(245, 158, 11, 0.15);
+        color: #d97706 !important;
+        border: 1px solid rgba(245, 158, 11, 0.3);
     }
     .score-badge.low {
-        background: #f9fafb;
-        color: #6b7280;
-        border: 1px solid #e5e7eb;
+        background: rgba(107, 114, 128, 0.15);
+        color: var(--text-color) !important;
+        opacity: 0.8;
+        border: 1px solid rgba(107, 114, 128, 0.3);
     }
 
-    /* -------- Match explanation tags -------- */
+    /* -------- Match Explanation Tags -------- */
     .match-tag {
         display: inline-block;
-        background: #eff6ff;
-        color: #1e40af;
+        background: rgba(59, 130, 246, 0.15);
+        color: var(--text-color) !important;
+        border: 1px solid rgba(59, 130, 246, 0.3);
         border-radius: 6px;
-        padding: 0.15rem 0.5rem;
+        padding: 0.15rem 0.55rem;
         font-size: 0.78rem;
-        margin: 0.15rem 0 0.15rem 0.35rem;
+        margin: 0.25rem 0 0.25rem 0.35rem;
     }
 
-    /* -------- Admin note -------- */
+    /* -------- Admin Note -------- */
     .admin-note {
-        background: #fef3c7;
-        border: 1px solid #fde68a;
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.35);
         border-radius: 8px;
         padding: 0.6rem 0.85rem;
         font-size: 0.82rem;
-        color: #92400e;
+        color: var(--text-color) !important;
         margin-top: 0.75rem;
     }
 
-    /* -------- Similar profiles list -------- */
+    /* -------- Similar Profiles List -------- */
     .similar-item {
-        padding: 0.35rem 0;
+        padding: 0.4rem 0;
         font-size: 0.85rem;
-        color: #374151;
-        border-bottom: 1px solid #f3f4f6;
+        color: var(--text-color) !important;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
     }
     .similar-item:last-child { border-bottom: none; }
 
-    /* -------- Results header -------- */
+    /* -------- Results Header -------- */
     .results-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
     }
     .results-header h3 {
         margin: 0;
         font-size: 1.1rem;
         font-weight: 600;
-        color: #111827;
+        color: var(--text-color) !important;
     }
     .results-header .meta {
         font-size: 0.82rem;
-        color: #9ca3af;
+        opacity: 0.75;
+        color: var(--text-color) !important;
     }
 
-    /* -------- Empty state -------- */
+    /* -------- Empty State -------- */
     .empty-state {
         text-align: center;
         padding: 3rem 1rem;
-        color: #9ca3af;
+        opacity: 0.75;
+        color: var(--text-color) !important;
     }
     .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .empty-state p { font-size: 0.95rem; margin: 0; }
 
-    /* -------- Sidebar polish -------- */
+    /* -------- Sidebar -------- */
     section[data-testid="stSidebar"] {
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Rubik', sans-serif !important;
     }
     section[data-testid="stSidebar"] .stMarkdown h2 {
         font-size: 0.85rem;
         font-weight: 600;
-        color: #6b7280;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-top: 1.25rem;
+        color: var(--text-color) !important;
     }
 
-    /* -------- Dev mode box -------- */
+    /* -------- Developer Mode Box -------- */
     .dev-box {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
+        background-color: var(--secondary-background-color, rgba(128, 128, 128, 0.08));
+        color: var(--text-color) !important;
+        border: 1px solid rgba(128, 128, 128, 0.25);
         border-radius: 8px;
         padding: 0.85rem 1rem;
-        font-family: 'Consolas', 'Monaco', monospace;
-        font-size: 0.78rem;
-        color: #475569;
+        font-family: 'Rubik', sans-serif !important;
+        font-size: 0.82rem;
         line-height: 1.7;
         margin-bottom: 1rem;
     }
@@ -252,7 +271,7 @@ def get_embeddings(_model, texts: tuple, file_hash: str):
 # --------------------------------------------------------------------------------------
 st.markdown(
     """
-    <div class="main-header">
+    <div class="main-header" dir="rtl">
         <h1>🔍 מנוע חיפוש חכם לרשת מנהיגי מעוז</h1>
         <p>Proof of Concept — חיפוש לפי ניסיון, תחומי עניין, ערכים ואתגרים משותפים</p>
     </div>
@@ -370,64 +389,68 @@ if query:
             unsafe_allow_html=True,
         )
 
-    # Result cards
-    for idx, row in work_df.iterrows():
-        score_pct = row["score"] * 100
-        level = score_level(row["score"])
+    if work_df.empty:
+        st.warning("לא נמצאו תוצאות המתאימות לקריטריונים שנבחרו.")
+    else:
+        # Result cards
+        for orig_idx, row in work_df.iterrows():
+            score_pct = row["score"] * 100
+            level = score_level(row["score"])
 
-        name = row["name"]
-        title = row["title"]
-        org = row["organization"]
-        title_line = f"{title} · {org}" if org else title
+            name = row["name"]
+            title = row["title"]
+            org = row["organization"]
+            title_line = f"{title} · {org}" if org else title
 
-        experience = str(row.get("experience", ""))
-        exp_snippet = experience[:250] + "..." if len(experience) > 250 else experience
+            experience = str(row.get("experience", ""))
+            exp_snippet = experience[:250] + "..." if len(experience) > 250 else experience
 
-        # Match explanation tags
-        match_tags_html = ""
-        if mode == "Semantic Search":
-            labels = explain_match(query, row)
-            tags = "".join(f'<span class="match-tag">{label}</span>' for label in labels)
-            match_tags_html = f'<div style="margin-top: 0.5rem;">{tags}</div>'
+            # Match explanation tags
+            match_tags_html = ""
+            if mode == "Semantic Search":
+                labels = explain_match(query, row)
+                tags = "".join(f'<span class="match-tag">{label}</span>' for label in labels)
+                match_tags_html = f'<div style="margin-top: 0.5rem;">{tags}</div>'
 
-        # Admin note
-        admin_html = ""
-        if role == "צוות מעוז (Admin)" and row.get("internal_note"):
-            admin_html = f'<div class="admin-note">🔒 {row["internal_note"]}</div>'
+            # Admin note
+            admin_html = ""
+            if role == "צוות מעוז (Admin)" and row.get("internal_note"):
+                admin_html = f'<div class="admin-note">🔒 {row["internal_note"]}</div>'
 
-        st.markdown(
-            f"""
-            <div class="profile-card">
-                <div class="card-header">
-                    <div>
-                        <p class="card-name">👤 {name}</p>
-                        <p class="card-title">{title_line}</p>
+            st.markdown(
+                f"""
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-name">👤 {name}</p>
+                            <p class="card-title">{title_line}</p>
+                        </div>
+                        <span class="score-badge {level}">{score_pct:.1f}%</span>
                     </div>
-                    <span class="score-badge {level}">{score_pct:.1f}%</span>
+                    <div class="card-body">{exp_snippet}</div>
+                    {match_tags_html}
+                    {admin_html}
                 </div>
-                <div class="card-body">{exp_snippet}</div>
-                {match_tags_html}
-                {admin_html}
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+                """,
+                unsafe_allow_html=True,
+            )
 
-        # "Find similar" button
-        if st.button("🔗 מצא/י אנשים דומים", key=f"similar-{idx}"):
-            similar = find_similar(idx, embeddings, df, top_k=5)
-            st.markdown("**פרופילים דומים:**")
-            for _, srow in similar.iterrows():
-                sim_name = srow["name"]
-                sim_title = srow["title"]
-                sim_org = srow["organization"]
-                sim_label = f"{sim_name} · {sim_title}"
-                if sim_org:
-                    sim_label += f" · {sim_org}"
-                st.markdown(
-                    f'<div class="similar-item">↳ {sim_label} — {srow["score"]*100:.1f}%</div>',
-                    unsafe_allow_html=True,
-                )
+            # "Find similar" button — Positional index lookup with get_loc
+            if st.button("🔗 מצא/י אנשים דומים", key=f"similar-{orig_idx}"):
+                pos_idx = df.index.get_loc(orig_idx)
+                similar = find_similar(pos_idx, embeddings, df, top_k=5)
+                st.markdown("**פרופילים דומים:**")
+                for _, srow in similar.iterrows():
+                    sim_name = srow["name"]
+                    sim_title = srow["title"]
+                    sim_org = srow["organization"]
+                    sim_label = f"{sim_name} · {sim_title}"
+                    if sim_org:
+                        sim_label += f" · {sim_org}"
+                    st.markdown(
+                        f'<div class="similar-item">↳ {sim_label} — {srow["score"]*100:.1f}%</div>',
+                        unsafe_allow_html=True,
+                    )
 
 else:
     st.markdown(
