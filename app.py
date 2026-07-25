@@ -210,10 +210,18 @@ st.markdown(
     .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .empty-state p { font-size: 0.95rem; margin: 0; }
 
-    /* -------- Sidebar Polish -------- */
+    /* -------- Sidebar Comprehensive RTL -------- */
     section[data-testid="stSidebar"] {
+        direction: rtl !important;
+        text-align: right !important;
         font-family: 'Rubik', sans-serif !important;
     }
+
+    section[data-testid="stSidebar"] * {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
     section[data-testid="stSidebar"] .stMarkdown h2 {
         font-size: 0.85rem;
         font-weight: 600;
@@ -221,6 +229,27 @@ st.markdown(
         letter-spacing: 0.5px;
         margin-top: 1.25rem;
         color: var(--text-color);
+    }
+
+    section[data-testid="stSidebar"] label[data-testid="stCheckbox"] {
+        flex-direction: row-reverse !important;
+        justify-content: flex-end !important;
+        gap: 0.5rem !important;
+    }
+
+    section[data-testid="stSidebar"] [data-baseweb="select"] {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stMetric"] {
+        text-align: right !important;
+        direction: rtl !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stAlert"] {
+        direction: rtl !important;
+        text-align: right !important;
     }
 
     /* -------- Developer Mode Box -------- */
