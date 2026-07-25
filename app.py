@@ -41,141 +41,56 @@ st.markdown(
     /* -------- Google Font -------- */
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-    /* -------- Theme Color Variables (Light & Dark Mode) -------- */
-    :root {
-        --card-bg: #ffffff;
-        --card-border: #e2e8f0;
-        --card-text-primary: #0f172a;
-        --card-text-secondary: #475569;
-        --header-text: #0f172a;
-        --header-subtext: #475569;
-        --tag-bg: #eff6ff;
-        --tag-text: #1d4ed8;
-        --tag-border: #bfdbfe;
-        --admin-bg: #fef3c7;
-        --admin-text: #92400e;
-        --admin-border: #fde68a;
-        --dev-bg: #f8fafc;
-        --dev-text: #334155;
-        --badge-high-bg: #f0fdf4;
-        --badge-high-text: #15803d;
-        --badge-high-border: #bbf7d0;
-        --badge-med-bg: #fffbeb;
-        --badge-med-text: #b45309;
-        --badge-med-border: #fde68a;
-        --badge-low-bg: #f8fafc;
-        --badge-low-text: #64748b;
-        --badge-low-border: #e2e8f0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --card-bg: #1e293b;
-            --card-border: #334155;
-            --card-text-primary: #f8fafc;
-            --card-text-secondary: #cbd5e1;
-            --header-text: #f8fafc;
-            --header-subtext: #cbd5e1;
-            --tag-bg: #1e3a8a;
-            --tag-text: #93c5fd;
-            --tag-border: #1d4ed8;
-            --admin-bg: #78350f;
-            --admin-text: #fde68a;
-            --admin-border: #92400e;
-            --dev-bg: #0f172a;
-            --dev-text: #cbd5e1;
-            --badge-high-bg: #064e3b;
-            --badge-high-text: #4ade80;
-            --badge-high-border: #047857;
-            --badge-med-bg: #78350f;
-            --badge-med-text: #fbbf24;
-            --badge-med-border: #b45309;
-            --badge-low-bg: #334155;
-            --badge-low-text: #94a3b8;
-            --badge-low-border: #475569;
-        }
-    }
-
-    /* Streamlit Theme Selectors for Dark Mode */
-    [data-theme="dark"], [data-testid="stAppViewContainer"][data-theme="dark"] {
-        --card-bg: #1e293b;
-        --card-border: #334155;
-        --card-text-primary: #f8fafc;
-        --card-text-secondary: #cbd5e1;
-        --header-text: #f8fafc;
-        --header-subtext: #cbd5e1;
-        --tag-bg: #1e3a8a;
-        --tag-text: #93c5fd;
-        --tag-border: #1d4ed8;
-        --admin-bg: #78350f;
-        --admin-text: #fde68a;
-        --admin-border: #92400e;
-        --dev-bg: #0f172a;
-        --dev-text: #cbd5e1;
-        --badge-high-bg: #064e3b;
-        --badge-high-text: #4ade80;
-        --badge-high-border: #047857;
-        --badge-med-bg: #78350f;
-        --badge-med-text: #fbbf24;
-        --badge-med-border: #b45309;
-        --badge-low-bg: #334155;
-        --badge-low-text: #94a3b8;
-        --badge-low-border: #475569;
-    }
-
-    /* -------- Global Font & RTL -------- */
-    * {
-        font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    }
-
-    html, body, [class*="css"], [class*="st-"] {
+    /* -------- Global Font & RTL (Safely target text containers without breaking icons) -------- */
+    html, body, .stApp, .profile-card, .main-header, .results-header, .dev-box, .empty-state {
+        font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
         direction: rtl;
         text-align: right;
-        font-family: 'Rubik', sans-serif !important;
     }
 
-    /* -------- Inputs & Selectboxes -------- */
+    /* -------- Inputs & Selectboxes RTL -------- */
     .stTextInput input, .stSelectbox select, .stMultiSelect {
         text-align: right;
         direction: rtl;
-        font-family: 'Rubik', sans-serif !important;
     }
 
     /* -------- Main Title Header -------- */
     .main-header {
         padding: 1.25rem 0 1rem 0;
-        border-bottom: 2px solid var(--card-border);
+        border-bottom: 2px solid rgba(128, 128, 128, 0.2);
         margin-bottom: 1.5rem;
         direction: rtl !important;
         text-align: right !important;
     }
     .main-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 700;
         margin: 0 0 0.35rem 0;
         letter-spacing: -0.5px;
-        color: var(--header-text) !important;
+        color: var(--text-color);
         text-align: right !important;
     }
     .main-header p {
         font-size: 0.95rem;
         margin: 0;
-        color: var(--header-subtext) !important;
+        opacity: 0.8;
+        color: var(--text-color);
         text-align: right !important;
     }
 
-    /* -------- Profile Card (Adaptive Light & Dark Mode) -------- */
+    /* -------- Profile Card (Syncs automatically with Streamlit Theme) -------- */
     .profile-card {
-        background-color: var(--card-bg);
-        color: var(--card-text-primary) !important;
-        border: 1px solid var(--card-border);
+        background-color: var(--secondary-background-color, rgba(128, 128, 128, 0.05));
+        color: var(--text-color);
+        border: 1px solid rgba(128, 128, 128, 0.2);
         border-radius: 12px;
         padding: 1.25rem 1.5rem;
         margin-bottom: 0.75rem;
         transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .profile-card:hover {
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        border-color: rgba(128, 128, 128, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     .profile-card .card-header {
         display: flex;
@@ -188,17 +103,19 @@ st.markdown(
         font-size: 1.15rem;
         font-weight: 600;
         margin: 0;
-        color: var(--card-text-primary) !important;
+        color: var(--text-color);
     }
     .profile-card .card-title {
         font-size: 0.9rem;
+        opacity: 0.8;
         margin: 0.2rem 0 0 0;
-        color: var(--card-text-secondary) !important;
+        color: var(--text-color);
     }
     .profile-card .card-body {
         font-size: 0.88rem;
         line-height: 1.65;
-        color: var(--card-text-secondary) !important;
+        opacity: 0.9;
+        color: var(--text-color);
     }
 
     /* -------- Score Badges -------- */
@@ -213,27 +130,28 @@ st.markdown(
         white-space: nowrap;
     }
     .score-badge.high {
-        background-color: var(--badge-high-bg);
-        color: var(--badge-high-text) !important;
-        border: 1px solid var(--badge-high-border);
+        background-color: rgba(34, 197, 94, 0.15);
+        color: var(--text-color);
+        border: 1px solid rgba(34, 197, 94, 0.4);
     }
     .score-badge.medium {
-        background-color: var(--badge-med-bg);
-        color: var(--badge-med-text) !important;
-        border: 1px solid var(--badge-med-border);
+        background-color: rgba(245, 158, 11, 0.15);
+        color: var(--text-color);
+        border: 1px solid rgba(245, 158, 11, 0.4);
     }
     .score-badge.low {
-        background-color: var(--badge-low-bg);
-        color: var(--badge-low-text) !important;
-        border: 1px solid var(--badge-low-border);
+        background-color: rgba(107, 114, 128, 0.15);
+        color: var(--text-color);
+        opacity: 0.8;
+        border: 1px solid rgba(107, 114, 128, 0.4);
     }
 
     /* -------- Match Explanation Tags -------- */
     .match-tag {
         display: inline-block;
-        background-color: var(--tag-bg);
-        color: var(--tag-text) !important;
-        border: 1px solid var(--tag-border);
+        background-color: rgba(59, 130, 246, 0.12);
+        color: var(--text-color);
+        border: 1px solid rgba(59, 130, 246, 0.35);
         border-radius: 6px;
         padding: 0.15rem 0.55rem;
         font-size: 0.78rem;
@@ -242,12 +160,12 @@ st.markdown(
 
     /* -------- Admin Note -------- */
     .admin-note {
-        background-color: var(--admin-bg);
-        border: 1px solid var(--admin-border);
+        background-color: rgba(245, 158, 11, 0.12);
+        border: 1px solid rgba(245, 158, 11, 0.35);
         border-radius: 8px;
         padding: 0.6rem 0.85rem;
         font-size: 0.82rem;
-        color: var(--admin-text) !important;
+        color: var(--text-color);
         margin-top: 0.75rem;
     }
 
@@ -255,8 +173,9 @@ st.markdown(
     .similar-item {
         padding: 0.4rem 0;
         font-size: 0.85rem;
-        color: var(--card-text-secondary) !important;
-        border-bottom: 1px solid var(--card-border);
+        color: var(--text-color);
+        opacity: 0.9;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
     }
     .similar-item:last-child { border-bottom: none; }
 
@@ -267,29 +186,31 @@ st.markdown(
         align-items: center;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--card-border);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
     }
     .results-header h3 {
         margin: 0;
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--header-text) !important;
+        color: var(--text-color);
     }
     .results-header .meta {
         font-size: 0.82rem;
-        color: var(--header-subtext) !important;
+        opacity: 0.75;
+        color: var(--text-color);
     }
 
     /* -------- Empty State -------- */
     .empty-state {
         text-align: center;
         padding: 3rem 1rem;
-        color: var(--header-subtext) !important;
+        opacity: 0.75;
+        color: var(--text-color);
     }
     .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .empty-state p { font-size: 0.95rem; margin: 0; }
 
-    /* -------- Sidebar -------- */
+    /* -------- Sidebar Polish -------- */
     section[data-testid="stSidebar"] {
         font-family: 'Rubik', sans-serif !important;
     }
@@ -299,17 +220,16 @@ st.markdown(
         text-transform: uppercase;
         letter-spacing: 0.5px;
         margin-top: 1.25rem;
-        color: var(--header-text) !important;
+        color: var(--text-color);
     }
 
     /* -------- Developer Mode Box -------- */
     .dev-box {
-        background-color: var(--dev-bg);
-        color: var(--dev-text) !important;
-        border: 1px solid var(--card-border);
+        background-color: var(--secondary-background-color, rgba(128, 128, 128, 0.08));
+        color: var(--text-color);
+        border: 1px solid rgba(128, 128, 128, 0.25);
         border-radius: 8px;
         padding: 0.85rem 1rem;
-        font-family: 'Rubik', sans-serif !important;
         font-size: 0.82rem;
         line-height: 1.7;
         margin-bottom: 1rem;
